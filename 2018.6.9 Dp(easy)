@@ -1,0 +1,70 @@
+2018.6.9 Dp(easy)
+
+Q66.Plus One
+
+Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
+
+You may assume the integer does not contain any leading zero, except the number 0 itself.
+
+Example 1:
+
+    Input: [1,2,3]
+    Output: [1,2,4]
+    Explanation: The array represents the integer 123.
+    
+
+Example 2:
+
+    Input: [4,3,2,1]
+    Output: [4,3,2,2]
+    Explanation: The array represents the integer 4321.
+
+Solution:
+
+    class Solution(object):
+        def plusOne(self, digits):
+            """
+            :type digits: List[int]
+            :rtype: List[int]
+            """
+            list = []
+            count = 0
+            for i in range(len(digits)-1,-1,-1):
+                count += digits[i]*pow(10,(len(digits)-1-i))
+            count+=1
+            for item in str(count):
+                list.append(int(item))
+            return list
+
+Q70.Climbing Stairs
+
+You are climbing a stair case. It takes n steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Note: Given n will be a positive integer.
+
+Solution1:
+
+    #Dp
+    class Solution(object):
+        def climbStairs(self, n):
+            """
+            :type n: int
+            :rtype: int
+            """
+            list = [1,2]
+            for i in range(2,n):
+                list.append(list[i-1]+list[i-2])
+            return list[n-1]
+    '''
+    Complexity Analysis
+    
+    Time complexity : O(n)
+    
+    Space complexity : O(n).dp array of size nn is used
+    '''
+
+
