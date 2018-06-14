@@ -1,8 +1,8 @@
-#LeetCode
+# LeetCode
 
 从easy开始，分类刷算法题，暂定每天两道。。有待删减qwq
 
-##notes
+## notes
 
 ```python
 #python enumerate 遍历索引和元素
