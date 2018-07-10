@@ -29,32 +29,42 @@ set(['y', 'b', 'o'])
 
 ```python
 #链表
+#reverse
 #定义链表
 class Listnode(object):
   def __init__(self):
     self.val = None
     self.next = None
 #操作链表
-class ListNode_handle:
-    def __init__(self):
-        self.cur_node = None
-    def add(self,data):
-        #add a new node pointed to previous node
-        node = ListNode()
-        node.val = data
-        node.next = self.cur_node
-        self.cur_node = node
-        return node
-    def _reverse(self,nodelist):
-        list = []
-        while nodelist:
-            list.append(nodelist.val)
-            nodelist = nodelist.next
-        result = Listnode()
-        result_handle = ListNode_handle()
-        for i in list:
-            result = result_handle.append(i)
-        return result
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+def isPalindrome(head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        tmp = None
+        while head:
+            n = ListNode(head.val)
+            n.next = tmp
+            tmp = n
+            head = head.next
+        return tmp
+
+head=ListNode(1)
+p1=ListNode(2)     
+p2=ListNode(3)
+p3=ListNode(4)
+head.next=p1
+p1.next=p2
+p2.next=p3
+p=isPalindrome(head);
+while p:
+    print p.val
+    p = p.next
 ```
 
 ```python
@@ -84,11 +94,42 @@ def bubblesort(nums):
 				nums[j],nums[j+1]=nums[j+1],nums[j]
 	return nums
 
-#quicksort
-def quicksort(nums):
-	for i in range(len(nums)):
-		for j in range(i+1,len(nums)):
-			if nums[j] < nums[i]:
-				nums[i],nums[j] = nums[j],nums[i]
+#insert_sorts
+def insert_sort(nums):
+	for i in range(1,len(nums)):
+		key = nums[i]
+		j = i - 1
+		while j >= 0:
+			if nums[j] > key:
+				nums[j+1] = nums[j]
+				nums[j] = key
+			j-=1
+	return nums
+
+def insert_sort(nums):
+    for i in range(i,len(nums)):
+        j=i
+        while j>0 and nums[j-1]>nums[i]:
+            j-=1
+        nums.insert(j,nums[i])
+        nums.pop(i+1)
+       
+#shell_sort 定义一个增量，每个分组做插入排序   
+def shell_sort(nums):
+	length = len(nums)
+	inc = 0
+	while inc <= length/3:
+		inc = inc*3+1
+	while inc >= 1:
+		for i in range(inc,len(nums)):
+			tmp = nums[i]
+			for j in range(i,0,-inc):
+				if tmp < nums[j-inc]:
+					nums[j] = nums[j-inc]
+				else:
+					j+=inc
+					break
+			nums[j-inc] = tmp	
+		inc //= 3
 	return nums
 ```
