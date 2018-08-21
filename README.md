@@ -5,6 +5,16 @@
 ## notes
 
 ```python
+# map
+map(function,iterable)
+py2.x返回list
+py2.x返回迭代器
+#example
+map(str,[1,2,3])
+>['1','2','3']
+```
+
+```python
 #python enumerate 遍历索引和元素
 list1 = ["这", "是", "一个", "测试"]
 for index, item in enumerate(list1):
