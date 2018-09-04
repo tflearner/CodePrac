@@ -5,13 +5,12 @@
 ## notes
 
 ```python
-# map
-map(function,iterable)
-py2.x返回list
-py2.x返回迭代器
-#example
-map(str,[1,2,3])
->['1','2','3']
+# reduce()
+# reduce() 函数会对参数序列中元素进行累积。
+# 函数将一个数据集合（链表，元组等）中的所有数据进行下列操作：用传给 reduce 中的函数 function（有两个参数）先对集合中的第 1、2 个元素进行操作，得到的结果再与第三个数据用 function 函数运算，最后得到一个结果。
+reduce(function, iterable[, initializer])
+reduce(lambda x, y: x+y, [1,2,3,4,5])
+>15
 ```
 
 ```python
@@ -35,6 +34,25 @@ print b
 >>>
 set(['y', 'b', 'o'])
 1
+```
+```python
+str.strip([chars]);
+返回移除字符串头尾指定的字符生成的新字符串
+int(x, base);
+x为字符串或数字，base默认为10
+bin();
+返回整数或长整数的二级制表示
+zip();
+>>>a = [1,2,3]
+>>> b = [4,5,6]
+>>> c = [4,5,6,7,8]
+>>> zipped = zip(a,b)     # 打包为元组的列表
+[(1, 4), (2, 5), (3, 6)]
+>>> zip(a,c)              # 元素个数与最短的列表一致
+[(1, 4), (2, 5), (3, 6)]
+>>> zip(*zipped)          # 与 zip 相反，*zipped 可理解为解压，返回二维矩阵式
+[(1, 2, 3), (4, 5, 6)]
+
 ```
 
 ```python
